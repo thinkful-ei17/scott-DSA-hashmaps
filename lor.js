@@ -5,20 +5,28 @@ const HashMap = require('./hashMap');
 const lor = new HashMap();
 
 const characters = [
-  { 'Hobbit': 'Bilbo' }, 
-  { 'Hobbit': 'Frodo' }, 
-  { 'Wizard': 'Gandolf' }, 
-  { 'Human': 'Aragon' }, 
-  { 'Elf': 'Legolas' }, 
-  { 'Maiar': 'The Necromancer' }, 
-  { 'Maiar': 'Sauron' }, 
-  { 'RingBearer': 'Gollum' }, 
-  { 'LadyOfLight': 'Galadriel' }, 
-  { 'HalfElven': 'Arwen' }, 
-  { 'Ent': 'Treebeard' }
+  {key: 'Hobbit', value: 'Frodo' }, 
+  {key: 'Hobbit', value: 'Bilbo' }, 
+  {key: 'Wizard', value: 'Gandolf' }, 
+  {key: 'Human', value: 'Aragon' }, 
+  {key: 'Elf', value: 'Legolas' }, 
+  {key: 'Maiar', value: 'The Necromancer' }, 
+  {key: 'Maiar', value: 'Sauron' }, 
+  {key: 'RingBearer', value: 'Gollum' }, 
+  {key: 'LadyOfLight', value: 'Galadriel' }, 
+  {key: 'HalfElven', value: 'Arwen' }, 
+  {key: 'Ent', value: 'Treebeard' }
 ];
 
-
+// function seedMap(map, arr){
+//   const keys = [];
+//   arr.forEach(item => {
+//     let value = map.get(item.key);
+//     if(value){
+//       value = value + 1;
+//     }
+//   })
+// }
 lor.set('Hobbit', 'Bilbo');
 lor.set('Hobbit', 'Frodo');
 lor.set('Wizard', 'Gandolf');
