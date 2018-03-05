@@ -5,17 +5,17 @@ const HashMap = require('./hashMap');
 const lor = new HashMap();
 
 const characters = [
-  { 'Hobbit': "Bilbo" }, 
-  { 'Hobbit': "Frodo" }, 
-  { 'Wizard': "Gandolf" }, 
-  { 'Human': "Aragon" }, 
-  { 'Elf': "Legolas" }, 
-  { 'Maiar': "The Necromancer" }, 
-  { 'Maiar': "Sauron" }, 
-  { 'RingBearer': "Gollum" }, 
-  { 'LadyOfLight': "Galadriel" }, 
-  { 'HalfElven': "Arwen" }, 
-  { 'Ent': "Treebeard" }
+  { 'Hobbit': 'Bilbo' }, 
+  { 'Hobbit': 'Frodo' }, 
+  { 'Wizard': 'Gandolf' }, 
+  { 'Human': 'Aragon' }, 
+  { 'Elf': 'Legolas' }, 
+  { 'Maiar': 'The Necromancer' }, 
+  { 'Maiar': 'Sauron' }, 
+  { 'RingBearer': 'Gollum' }, 
+  { 'LadyOfLight': 'Galadriel' }, 
+  { 'HalfElven': 'Arwen' }, 
+  { 'Ent': 'Treebeard' }
 ];
 
 
