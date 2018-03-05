@@ -33,5 +33,5 @@ function groupAnagrams(words){
 
 }
 
-const toSort = ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race']
+const toSort = ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race'];
 console.log(groupAnagrams(toSort));
