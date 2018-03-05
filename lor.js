@@ -31,4 +31,7 @@ lor.set('LadyOfLight', 'Galadriel');
 lor.set('HalfElven', 'Arwen');
 lor.set('Ent', 'Treebeard');
 
+//HashMap overwrote/update the first value with the second.
+// If you want to keep both and be able to update them, you need to re-assign one 
+//of the keys to a different key.
 console.log(lor.get('Maiar'));

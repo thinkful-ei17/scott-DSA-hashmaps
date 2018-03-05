@@ -11,7 +11,8 @@ class HashMap{
   get(key) {
     const index = this._findSlot(key);
     if (this._slots[index] === undefined) {
-      throw new Error('Key not found');
+      console.log('Key not found');
+      return null;
     }
     return this._slots[index].value;
   }
