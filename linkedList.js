@@ -23,12 +23,12 @@ class LinkedList {
     }
   }
 
-  insertBefore(match, newValue) {
+  insertBefore(key, newValue) {
     if (!this.head) {
       return null;
     }
 
-    if (this.head.value === match) {
+    if (this.head.value.key === key) {
       this.insertFirst(newValue);
       return;
     }
@@ -39,7 +39,7 @@ class LinkedList {
 
     while (current !== null) {
 
-      if (current.value === match) {
+      if (current.value,key === key) {
         previous.next = new _Node(newValue, current);
         return;
       }

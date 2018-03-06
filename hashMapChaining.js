@@ -11,13 +11,22 @@ class HashMap{
 
   get(key) {
     const index = this._findIndex(key);
+    const slot = this._slots[index];
 
-    if (this._slots[index] === undefined) {
+    if (slot === undefined) {
       console.log('Key not found');
       return null;
     }
 
-    return this._slots[index].find(key);
+    let current = slot.head;
+    let values = [];
+    while (current !== null){
+      if(current.value.key === key){
+        values.push(current.value.value);
+      }
+      current = current.next;
+    }
+    return values;
   }
 
   set(key, value){
@@ -26,14 +35,21 @@ class HashMap{
       this._resize(this._capacity * HashMap.SIZE_RATIO);
     }
 
+    const toInsert = {
+      key,
+      value
+    };
+
     const index = this._findIndex(key);
     let slot = this._slots[index];
 
-    if(!slot.head){
-      slot = new linkedList();
+    if(slot === undefined){
+      this._slots[index] = new linkedList();
+      this._slots[index].insertFirst(toInsert);
       this.length++;
+      return;
     }
-    slot.insertFirst({ key, value });
+    this._slots[index].insertLast(toInsert);
   }
 
   remove(key){
@@ -72,29 +88,6 @@ HashMap.SIZE_RATIO = 3;
 
 const lor = new HashMap();
 
-const characters = [
-  { key: 'Hobbit', value: 'Frodo' },
-  { key: 'Hobbit', value: 'Bilbo' },
-  { key: 'Wizard', value: 'Gandolf' },
-  { key: 'Human', value: 'Aragon' },
-  { key: 'Elf', value: 'Legolas' },
-  { key: 'Maiar', value: 'The Necromancer' },
-  { key: 'Maiar', value: 'Sauron' },
-  { key: 'RingBearer', value: 'Gollum' },
-  { key: 'LadyOfLight', value: 'Galadriel' },
-  { key: 'HalfElven', value: 'Arwen' },
-  { key: 'Ent', value: 'Treebeard' }
-];
-
-// function seedMap(map, arr){
-//   const keys = [];
-//   arr.forEach(item => {
-//     let value = map.get(item.key);
-//     if(value){
-//       value = value + 1;
-//     }
-//   })
-// }
 lor.set('Hobbit', 'Bilbo');
 lor.set('Hobbit', 'Frodo');
 lor.set('Wizard', 'Gandolf');
@@ -107,8 +100,35 @@ lor.set('LadyOfLight', 'Galadriel');
 lor.set('HalfElven', 'Arwen');
 lor.set('Ent', 'Treebeard');
 
+console.log(lor.get('Maiar'));
+
+// const characters = [
+//   { key: 'Hobbit', value: 'Frodo' },
+//   { key: 'Hobbit', value: 'Bilbo' },
+//   { key: 'Wizard', value: 'Gandolf' },
+//   { key: 'Human', value: 'Aragon' },
+//   { key: 'Elf', value: 'Legolas' },
+//   { key: 'Maiar', value: 'The Necromancer' },
+//   { key: 'Maiar', value: 'Sauron' },
+//   { key: 'RingBearer', value: 'Gollum' },
+//   { key: 'LadyOfLight', value: 'Galadriel' },
+//   { key: 'HalfElven', value: 'Arwen' },
+//   { key: 'Ent', value: 'Treebeard' }
+// ];
+
+// function seedMap(map, arr){
+//   const keys = [];
+//   arr.forEach(item => {
+//     let value = map.get(item.key);
+//     if(value){
+//       value = value + 1;
+//     }
+//   })
+// }
+
+
 //HashMap overwrote/update the first value with the second.
 // If you want to keep both and be able to update them, you need to re-assign one 
 //of the keys to a different key.
-console.log(lor.get('Maiar'));
+
 
