@@ -115,12 +115,12 @@ class LinkedList {
     return null;
   }
 
-  remove(item) {
+  remove(key) {
     if (!this.head) {
       return null;
     }
 
-    if (this.head.value.key === item) {
+    if (this.head.value.key === key) {
       this.head = this.head.next;
       return;
     }
@@ -130,7 +130,7 @@ class LinkedList {
 
     while (current !== null) {
 
-      if (current.value.key === item) {
+      if (current.value.key === key) {
         previous.next = current.next;
         return;
       }

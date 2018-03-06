@@ -13,18 +13,22 @@ class HashMap{
     const index = this._findIndex(key);
     const slot = this._slots[index];
 
-    if (slot === undefined) {
+    if (!slot.head) {
       console.log('Key not found');
       return null;
     }
 
     let current = slot.head;
     let values = [];
+
     while (current !== null){
       if(current.value.key === key){
         values.push(current.value.value);
       }
       current = current.next;
+    }
+    if(values.length === 0){
+      return null;
     }
     return values;
   }
@@ -59,10 +63,24 @@ class HashMap{
       throw new Error('Key not found');
     }
     slot.remove(key);
+    console.log('slot.head after remove:', slot.head);
     if(!slot.head){
       this.length--;
     } 
   }
+
+  // removeValue(key, value) {
+  //   const index = this._findIndex(key);
+  //   const slot = this._slots[index];
+  //   if (slot === undefined) {
+  //     throw new Error('Key not found');
+  //   }
+  //   slot.remove(key);
+  //   console.log('slot.head after remove:', slot.head);
+  //   if (!slot.head) {
+  //     this.length--;
+  //   }
+  // }
 
   _findIndex(key){
     const hash = HashMap._hashString(key);
@@ -101,6 +119,9 @@ lor.set('HalfElven', 'Arwen');
 lor.set('Ent', 'Treebeard');
 
 console.log(lor.get('Maiar'));
+lor.remove('Maiar');
+console.log('Expect undefined or null:', lor.get('Maiar'));
+lor.remove('Maiar');
 
 // const characters = [
 //   { key: 'Hobbit', value: 'Frodo' },
